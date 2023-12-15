@@ -7,4 +7,5 @@
 4. After the unity is done loading, go the the top bar menu and select -> Assets -> Import Package -> Custom Package
 5. This opens a file selection box. Now, select the downloaded ".unitypackage" file and click okay.
 6. Let unity load all the assets.
-7. Congratulations! Now you can run the project in unity!
+7. After it is done loading the assets, go to the "Scenes" folder and load the scenes in the hierarchy.
+8. Congratulations! Now you can run the project in unity!
