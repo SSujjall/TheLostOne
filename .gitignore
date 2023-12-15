@@ -8,7 +8,6 @@
 /[Bb]uild/
 /[Bb]uilds/
 /[Ll]ogs/
-/[Uu]ser[Ss]ettings/
 /[Aa]ssets/[Pp]ackages/*/
 # The above line ignores the subfolders but does not ignore files (meta files)
 
