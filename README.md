@@ -1,5 +1,4 @@
 # The-Lost-One
-FYP project repo
 
 ******************HOW TO RUN THE PROJECT***********************
 1. Gp to the "[REQUIRED]Installation Package" text file and copy the link.
