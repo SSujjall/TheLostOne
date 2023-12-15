@@ -1,6 +1,6 @@
 # The-Lost-One
 
-******************HOW TO RUN THE PROJECT***********************
+--------------------------------------------**HOW TO RUN THE PROJECT**----------------------------------------------
 1. Gp to the "[REQUIRED]Installation Package" text file and copy the link.
 2. Paste the link in the browser and download the ".unitypackage" file.
 3. Now Open the game folder in unity hub or directly from unity.
