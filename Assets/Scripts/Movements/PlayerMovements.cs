@@ -38,9 +38,7 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         //right is the red Axis, foward is the blue axis
-        Vector3 move = transform.right * x + transform.forward * z;
-
-        controller.Move(move * walkSpeed * Time.deltaTime);
+        Vector3 move;
 
         //check if the player is on the ground so he can jump
         if (Input.GetButtonDown("Jump") && isGrounded)
@@ -62,14 +60,17 @@ public class PlayerMovement : MonoBehaviour
         {
             isSprinting = false;
         }
-
+        
         if (isSprinting == true)
         {
             walkSpeed = sprintSpeed;
+            move = transform.right * x * 0.5f + transform.forward * z;
         }
         else
         {
             walkSpeed = normalSpeed;
+            move = transform.right * x + transform.forward * z;
         }
+        controller.Move(move * walkSpeed * Time.deltaTime);   
     }
 }
