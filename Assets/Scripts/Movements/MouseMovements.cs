@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MouseMovement : MonoBehaviour
 {
-    public float mouseSensitivity = 500f;
+    public float mouseSensitivity = 300f;
 
     float XRotation = 0f;
     float YRotation = 0f;
@@ -25,7 +25,7 @@ public class MouseMovement : MonoBehaviour
         XRotation -= mouseY;
 
         //we clamp the rotation so we cant Over-rotate (like in real life)
-        XRotation = Mathf.Clamp(XRotation, -90f, 90f);
+        XRotation = Mathf.Clamp(XRotation, -75f, 75f);
 
         //control rotation around y axis (Look up and down)
         YRotation += mouseX;
