@@ -15,4 +15,12 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Quitting the Game");
         Application.Quit();
     }
+
+    public void OpenMenu()
+    {
+        if(Input.GetKey(KeyCode.LeftControl))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+    }
 }

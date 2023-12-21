@@ -25,7 +25,7 @@ public class MouseMovement : MonoBehaviour
         XRotation -= mouseY;
 
         //we clamp the rotation so we cant Over-rotate (like in real life)
-        XRotation = Mathf.Clamp(XRotation, -75f, 75f);
+        XRotation = Mathf.Clamp(XRotation, -90f, 90f);
 
         //control rotation around y axis (Look up and down)
         YRotation += mouseX;

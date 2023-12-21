@@ -7,12 +7,12 @@ using UnityEngine.UI;
 public class SelectionManager : MonoBehaviour
 {
  
-    public GameObject interactionInfoUI;
-    TextMeshPro interactionText;
+    public GameObject interaction_Info_UI;
+    Text interaction_text;
  
     private void Start()
     {
-        interactionText = interactionInfoUI.GetComponent<TextMeshPro>();
+        interaction_text = interaction_Info_UI.GetComponent<Text>();
     }
  
     void Update()
@@ -25,14 +25,15 @@ public class SelectionManager : MonoBehaviour
  
             if (selectionTransform.GetComponent<InteractableObject>())
             {
-                interactionText.text = selectionTransform.GetComponent<InteractableObject>().GetItemName();
-                interactionInfoUI.SetActive(true);
+                interaction_text.text = selectionTransform.GetComponent<InteractableObject>().GetItemName();
+                interaction_Info_UI.SetActive(true);
             }
             else 
             { 
-                interactionInfoUI.SetActive(false);
+                interaction_Info_UI.SetActive(false);
             }
  
         }
     }
 }
+ 
