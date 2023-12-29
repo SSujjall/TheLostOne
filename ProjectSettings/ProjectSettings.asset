@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: 947cc4e150d7f2b42bc9c37de3c9cd22
+  productGUID: f86cbf3994dc6bc47acdef037ef8c1da
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: Haku
-  productName: TheLostOne
+  companyName: DefaultCompany
+  productName: TestProject
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -278,14 +278,7 @@ PlayerSettings:
   AndroidMinifyDebug: 0
   AndroidValidateAppBundleSize: 1
   AndroidAppBundleSizeToValidate: 150
-  m_BuildTargetIcons:
-  - m_BuildTarget: 
-    m_Icons:
-    - serializedVersion: 2
-      m_Icon: {fileID: 10912, guid: 0000000000000000f000000000000000, type: 0}
-      m_Width: 128
-      m_Height: 128
-      m_Kind: 0
+  m_BuildTargetIcons: []
   m_BuildTargetPlatformIcons: []
   m_BuildTargetBatching:
   - m_BuildTarget: Standalone
@@ -680,14 +673,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: TheLostOne
+  metroPackageName: TestProject
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: TheLostOne
+  metroApplicationDescription: TestProject
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -756,10 +749,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 5c76d5fa-bcb0-4761-bbef-ac422644d204
+  cloudProjectId: 641d58f5-22ce-4dea-bdfe-9318e89e9c08
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: TheLostOne
+  projectName: TestProject
   organizationId: h4aku
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
