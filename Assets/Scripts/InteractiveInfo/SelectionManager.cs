@@ -7,14 +7,28 @@ using UnityEngine.UI;
 
 public class SelectionManager : MonoBehaviour
 {
-
+    public static SelectionManager Instance { get; set; }
     public GameObject interaction_Info_UI;
     TextMeshProUGUI interaction_text;
-    readonly float maxDistance = 7f;
+    public bool OnTarget;
 
     private void Start()
     {
+        OnTarget = false;
         interaction_text = interaction_Info_UI.GetComponent<TextMeshProUGUI>();
+    }
+
+    private void Awake()
+    {
+        if(Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+        else
+        {
+            Instance = this;
+        }
     }
 
     void Update()
@@ -24,27 +38,25 @@ public class SelectionManager : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             var selectionTransform = hit.transform;
+            InteractableObject Interactable = selectionTransform.GetComponent<InteractableObject>();
 
-            if (selectionTransform.GetComponent<InteractableObject>())
+            if (Interactable && Interactable.PlayerInRange)
             {
-                float distance = Vector3.Distance(Camera.main.transform.position, selectionTransform.position);
-
-                if (distance <= maxDistance)
-                {
-                    interaction_text.text = selectionTransform.GetComponent<InteractableObject>().GetItemName();
-                    interaction_Info_UI.SetActive(true);
-                }
-
-                else
-                {
-                    interaction_Info_UI.SetActive(false);
-                }
+                OnTarget = true;
+                interaction_text.text = Interactable.GetItemName();
+                interaction_Info_UI.SetActive(true);
             }
             else
             {
+                OnTarget = false;
                 interaction_Info_UI.SetActive(false);
             }
 
+        }
+        else
+        {
+            OnTarget = false;
+            interaction_Info_UI.SetActive(false);
         }
     }
 }
