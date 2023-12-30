@@ -32,7 +32,7 @@ public class MainMenu : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene("Menu");
+                SceneManager.LoadScene("PauseMenu");
                 isPaused = true;
             }
         }
