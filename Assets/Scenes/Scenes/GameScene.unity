@@ -2797,10 +2797,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379149d4f4f658c49b7d137f7180d611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  so:
-    location: 112233
-    playerHealth: 10
-    playerStamina: 5
 --- !u!1 &1083403428
 GameObject:
   m_ObjectHideFlags: 0

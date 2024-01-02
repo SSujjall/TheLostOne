@@ -4,6 +4,8 @@ using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using Unity.VisualScripting.FullSerializer;
+using System.Security.Cryptography;
 
 
 [System.Serializable]
@@ -12,7 +14,7 @@ public static class SaveManager
     public static string directory = "SaveData";
     public static string filename = "saveFile.bin";
 
-    public static void Save(PlayerData PD)
+    public static void Save(PlayerMovement playerMovement)
     {
         if(!DirectoryExists())
         {
@@ -21,7 +23,8 @@ public static class SaveManager
         BinaryFormatter bf = new BinaryFormatter();
         FileStream fs = File.Create(GetFullPath());
 
-        bf.Serialize(fs, PD);
+        PlayerData data = new PlayerData(playerMovement);
+        bf.Serialize(fs, data);
         fs.Close();
     }
 
