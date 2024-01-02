@@ -21,10 +21,19 @@ public class MainMenu : MonoBehaviour
             Instance = this;
         }
     }
-    public void NewGame()
+
+    public bool isPaused;
+
+    public void StartNewGame()
     {
         Time.timeScale = 1.0f;
+        isPaused = true;
         SceneManager.LoadScene("GameScene");
+    }
+
+    public void ResumeGame()
+    {
+        
     }
 
     public void ExitGame()
@@ -32,8 +41,14 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    public static implicit operator MainMenu(PauseMenu v)
+    void Update()
     {
-        throw new NotImplementedException();
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            if (!isPaused)
+            {
+                ResumeGame();
+            }
+        }
     }
 }

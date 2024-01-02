@@ -14,7 +14,7 @@ public static class SaveManager
     public static string directory = "SaveData";
     public static string filename = "saveFile.bin";
 
-    public static void Save(PlayerMovement playerMovement)
+    public static void Save(PlayerData PD)
     {
         if(!DirectoryExists())
         {
@@ -22,9 +22,7 @@ public static class SaveManager
         }
         BinaryFormatter bf = new BinaryFormatter();
         FileStream fs = File.Create(GetFullPath());
-
-        PlayerData data = new PlayerData(playerMovement);
-        bf.Serialize(fs, data);
+        bf.Serialize(fs, PD);
         fs.Close();
     }
 
