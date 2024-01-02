@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class myPlayerAnim : MonoBehaviour
 {
     public CharacterController controller;
+    private Animator animator;
 
     public float walkSpeed;
     public float normalSpeed = 12f;
     public float sprintSpeed = 25f;
 
     public float gravity = -9.81f * 2;
-    
+
     public float jumpHeight = 3f;
 
     public Transform groundCheck;
@@ -21,6 +22,11 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
 
     bool isGrounded;
+
+    void Start()
+    {
+        animator = this.GetComponent<Animator>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -36,6 +42,8 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
+        bool isMoving = Mathf.Abs(x) > 0.1f || Mathf.Abs(z) > 0.1f;
+
         //right is the red Axis, foward is the blue axis
         Vector3 move;
 
@@ -48,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
 
-        controller.Move(velocity * Time.deltaTime);
 
         // *Sprinting
         if (Input.GetKey(KeyCode.LeftShift))
@@ -60,8 +67,16 @@ public class PlayerMovement : MonoBehaviour
         {
             walkSpeed = normalSpeed;
             move = transform.right * x + transform.forward * z;
+            if (Input.GetKey(KeyCode.W))
+            {
+                animator.SetBool("state", true);
+            }
+            else
+            {
+                animator.SetBool("state", false);
+            }
         }
-        
-        controller.Move(move * walkSpeed * Time.deltaTime);   
+        controller.Move(move * walkSpeed * Time.deltaTime);
+        controller.Move(velocity * Time.deltaTime);
     }
 }
