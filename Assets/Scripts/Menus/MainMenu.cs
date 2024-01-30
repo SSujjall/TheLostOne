@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -8,35 +7,17 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    public static MainMenu Instance { get; set; }
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            Instance = this;
-        }
-    }
-
     public bool isPaused;
 
-    public void StartNewGame()
+
+    public void Resume()
     {
         Time.timeScale = 1.0f;
-        isPaused = true;
+        isPaused = false;
         SceneManager.LoadScene("GameScene");
     }
 
-    public void ResumeGame()
-    {
-        
-    }
-
-    public void ExitGame()
+    public void exitGame()
     {
         Application.Quit();
     }
@@ -45,9 +26,14 @@ public class MainMenu : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Escape))
         {
-            if (!isPaused)
+            if (isPaused)
             {
-                ResumeGame();
+                Resume();
+            }
+            else
+            {
+                SceneManager.LoadScene("PauseMenu");
+                isPaused = true;
             }
         }
     }
