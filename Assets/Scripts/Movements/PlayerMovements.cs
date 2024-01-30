@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float normalSpeed = 12f;
     public float sprintSpeed = 25f;
 
+    bool isSprinting = false;
     public float gravity = -9.81f * 2;
     
     public float jumpHeight = 3f;
@@ -53,6 +54,15 @@ public class PlayerMovement : MonoBehaviour
         // *Sprinting
         if (Input.GetKey(KeyCode.LeftShift))
         {
+            isSprinting = true;
+        }
+        else
+        {
+            isSprinting = false;
+        }
+        
+        if (isSprinting == true)
+        {
             walkSpeed = sprintSpeed;
             move = transform.right * x * 0.5f + transform.forward * z;
         }
@@ -61,7 +71,6 @@ public class PlayerMovement : MonoBehaviour
             walkSpeed = normalSpeed;
             move = transform.right * x + transform.forward * z;
         }
-        
         controller.Move(move * walkSpeed * Time.deltaTime);   
     }
 }
